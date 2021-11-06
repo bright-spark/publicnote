@@ -1,4 +1,4 @@
-# Publicnote
+# publicnote.com
 Public Encrypted Notes
 
 Publicnote is a database of notes that is accessible to the public. No account is required. Simply enter a title to access any note.
