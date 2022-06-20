@@ -1,9 +1,11 @@
 # publicnote.com
 Public Encrypted Notes
 
-Publicnote is a database of notes that is accessible to the public. No account is required. Simply enter a title to access any note.
+Publicnote is a free online notepad. Enter any title to create a new note or to access any existing note. No account is required to access publicnote.
 
-Every note is encrypted with AES256, using the title as the encryption key. An SHA256 hash of the title is used to index the encrypted note. The title is never exposed, thus neither the website owner nor the web host can view the plaintext contents of any note (unless the title is easily guessed).
+All notes are auto-saved to the cloud as you type. The check mark in the upper right corner indicates when a note is successfully saved.
+
+Every note is encrypted with AES-256, using the title as the encryption key. An SHA-256 hash of the title is used to index the encrypted note in a database. Since SHA-256 is a one-way function, the title is never exposed, thus neither the website owner nor the web host (AWS) can view the plaintext contents of any note (unless the title is easily guessed).
 
             title → SHA256 → index
               ⇣
@@ -12,21 +14,12 @@ Every note is encrypted with AES256, using the title as the encryption key. An S
 
 By design, there is no way to recover a note if you forget the title.
 
-Notes stored on publicnote can be public or private, depending on the complexity of the title. Simple titles lead to highly visible notes that can be edited by anyone who stumbles upon it, while complex titles lead to private, anonymous notes that are securely encrypted. The more complex the title is, the stronger the encryption is.
+Notes stored on publicnote can be public or private, depending on the complexity of the title. Simple titles lead to highly visible notes that can be edited by anyone who stumbles upon them, while complex titles lead to private, anonymous notes that are securely encrypted. The higher the complexity, the stronger the encryption.
 
-There are various uses for publicnote:
-personal notetaking
-copy-pasting text from one device to another
-sending messages privately and anonymously
-chatting with strangers
-posting jokes and ASCII art
-puzzles and scavenger hunts
-announcements and advertisements
-Using common words like "hello" as your title is for entertainment purposes only. You will find a variety of messages left by others. If you find something you find offensive, delete it. More complex titles that can't be easily guessed can be used for personal use, but never use it to store sensitive information.
+Using common words as the title is for entertainment purposes only. You will find a variety of messages left by others. If you find something you find offensive, just delete it.
 
-Publicnote is open source and offered as a free service, running thanks to your cryptocurrency donations.
+Do not use publicnote to store sensitive information.
 
-daniel@ncrypt.org
+Publicnote is open source and offered as a free service.  Your cryptocurrency donations are always appreciated.
 
-BTC: 1HrQfojcRt4gGEZntEwp24KVrSch8mtqMk  
-LTC: Lc5Mw23SWYJjX3Fx4Nw7J5PG4eyyG3Pow2  
+BTC: 1HrQfojcRt4gGEZntEwp24KVrSch8mtqMk
