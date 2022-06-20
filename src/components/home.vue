@@ -8,26 +8,26 @@
     <br>
     Every note is encrypted.  You must know the title to see the note.<br>
     <br>
-    There are a variety of uses for publicnote:
-    <ul>
-      <li>personal note-taking</li>
-      <li>copy-pasting text from one device to another</li>
-      <li>accessing notes from a public computer</li>
-      <li>sending messages privately and anonymously</li>
-      <li>chatting with strangers</li>
-      <li>posting jokes and ASCII art</li>
-      <li>puzzles and scavenger hunts</li>
-      <li>announcements and advertisements</li>
-      <li>wasting time</li>
-    </ul>
-    Publicnote is <a class="link" href="https://github.com/routman/publicnote" target="_blank">open source</a> for full transparency. Learn more about <div class="link" @click="sot.title = 'how it works'">how it works</div>.<br>
+    There are a variety of uses for publicnote:<br>
     <br>
-    By using publicnote, you are agreeing to our <div class="link" @click="sot.title = 'terms'">terms of service</div>.<br>
+    • personal note-taking<br>
+    • copy-pasting between devices<br>
+    • private messaging<br>
+    • chatting with strangers<br>
+    • letting out feelings<br>
+    • jokes and ASCII art<br>
+    • puzzles and scavenger hunts<br>
+    • espionage dead drops<br>
+    • wasting time<br>
     <br>
-    Do not use publicnote to store sensitive information.<br>
+    Do not use publicnote to store sensitive information. By using publicnote, you are agreeing to our <div class="link" @click="sot.title = 'terms'">terms of service</div>.<br>
+    <br>
+    Publicnote is <a class="link" href="https://github.com/routman/publicnote" target="_blank" rel="noopener">open source</a> for full transparency. Convert your messages into encrypted emoji using <a class="link" href="https://cryptoji.com" target="_blank" rel="noopener">cryptoji.com</a>.<br>
     <br>
     daniel@ncrypt.org<br>
-    publicnote &copy; 2019<br>
+    1HrQfojcRt4gGEZntEwp24KVrSch8mtqMk<br>
+    <br>
+    publicnote &copy; {{ new Date().getFullYear() }}<br>
     <br>
   </div>
 </template>
@@ -49,5 +49,14 @@ export default {
 
 <style scoped lang="scss">
 @import "../assets/settings.scss";
+
+.ios {
+  display: inline-block;
+}
+
+.android {
+  display: inline-block;
+  margin-left: 12px;
+}
 
 </style>

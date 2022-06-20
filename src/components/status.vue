@@ -29,7 +29,7 @@ export default {
   width: 15px;
   height: 15px;
   animation: spin 0.5s linear infinite;
-  margin-top: 8px;
+  margin-top: 10px;
   margin-right: 2px;
 }
 
@@ -47,7 +47,7 @@ export default {
   border-width: 0 2px 2px 0;
   transform: rotate(45deg);
 
-  margin-top: 6px;
+  margin-top: 10px;
   margin-right: 6px;
 }
 
@@ -77,6 +77,14 @@ export default {
   background-color: currentColor;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
+}
+
+@media (prefers-color-scheme: dark) {
+  #spinner {
+    border: 2px solid;
+    border-color: $color-accent;
+    border-top: 2px solid #211e21;
+  }
 }
 
 

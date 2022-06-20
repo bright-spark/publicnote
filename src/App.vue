@@ -1,23 +1,24 @@
 <template>
   <div id="app">
-    <input type="text" v-model="sot.title" placeholder="title" v-on:keyup="get()" autocapitalize="none"/>
+    <input type="text" v-model="sot.title" placeholder="title" v-on:keyup="get()" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
     <status id="status"/>
-    <home id="home" v-if="sot.title == ''"/>
-    <terms id="terms" v-else-if="sot.title == 'terms'"/>
+    <home class="page" v-if="sot.title == ''"/>
+    <terms class="page" v-else-if="sot.title == 'terms'"/>
+    <suicide class="page" v-else-if="sot.title == 'suicide'"/>
     <textarea placeholder="type note here" v-else v-model="sot.note" v-on:keyup="save()" v-bind:class="{blur: sot.loading}" :disabled="sot.loading == true"/>
   </div>
 </template>
 
 <script>
-
 import home   from './components/home.vue'
 import terms  from './components/terms.vue'
+import suicide from './components/suicide.vue'
 import status from './components/status.vue'
 
 export default {
   name: 'app',
   components: {
-    home, terms, status,
+    home, terms, suicide, status
   },
   data: function() {
     return {
@@ -28,7 +29,7 @@ export default {
     get: function() {
       clearTimeout(this.sot.autoload);
       clearTimeout(this.sot.autosave);
-      if (this.sot.title != '' && this.sot.title != 'terms') {
+      if (this.sot.title != '' && this.sot.title != 'terms' && this.sot.title != 'how it works' && this.sot.title != 'suicide') {
         this.sot.get(this.sot.title);
       }
       else {
@@ -48,10 +49,19 @@ export default {
 
 html, body {
   font-family: $font;
+  font-size: 18px;
+  font-weight: 500;
   color: $color-text;
   margin: 0;
   width: 100%;
   height: 100%;
+}
+
+input::selection {
+  background: $color-selection;
+}
+textarea::selection {
+  background: $color-selection;
 }
 
 #app {
@@ -63,16 +73,21 @@ html, body {
   justify-content: space-between;
 }
 
-#home, #terms {
+.page {
   flex-grow: 1;
   margin: $app-margin;
   overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
+}
+.page::-webkit-scrollbar {
+  display: none;
 }
 
 #status {
   position: absolute;
-  top: $app-margin;
+  top: $app-margin + 4px;
   right: $app-margin;
 }
 
@@ -85,7 +100,7 @@ input, textarea {
   display: block;
   font-family: $font;
   caret-color: $color-primary;
-  font-size: 16px;
+  font-size: 18px;
   border: none;
   border-radius: 0;
   box-sizing: border-box;
@@ -94,17 +109,19 @@ input:focus, textarea:focus {
   outline: none;
   border: none;
 }
+
 input {
   flex-grow: 0;
-  min-height: 40px;
-  width: calc(100% - 24px);
+  line-height: 40px;
+  width: calc(100% - 32px);
   border-bottom: 1px solid $color-primary;
   border-width: 0 0 1px 0 ;
-  border-image: linear-gradient(to right, $color-primary 0%, $color-inactive 100%);
+  border-image: linear-gradient(to right, $color-primary 0%, $color-accent 100%);
   border-image-slice: 1;
-
   margin: $app-margin;
   padding: 0;
+  margin-top: $app-margin + 8px;
+  margin-bottom: 8px;
 }
 input:focus {
   border-bottom: 1px solid $color-accent;
@@ -115,11 +132,15 @@ input:focus {
 textarea {
   flex-grow: 1;
   width: 100%;
-  padding-top: 16px;
   padding: $app-margin;
   line-height: 20px;
   overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
   -webkit-overflow-scrolling: touch;
+}
+textarea::-webkit-scrollbar {
+  display: none;
 }
 
 .link {
@@ -127,6 +148,21 @@ textarea {
   display: inline-block;
   cursor: pointer;
   color: $color-primary;
+}
+
+@media (prefers-color-scheme: dark) {
+  html, body {
+    color: #eee;
+    background: #211e21;
+  }
+  input, textarea {
+    color: #eee;
+    background: #211e21;
+  }
+  .blur {
+    background: #211e21;
+  }
+
 }
 
 </style>

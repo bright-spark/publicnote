@@ -4,7 +4,7 @@
     <br>
     Terms of Service<br>
     <br>
-    By using the publicnote app or web app (“Service”), you are agreeing to be bound by the following terms and conditions (“Terms of Use”) set forth by publicnote.com (“We”). <br>
+    By using the publicnote app or web app (“Service”), you are agreeing to be bound by the following terms and conditions (“Terms of Use”) set forth by publicnote.com (“We”).  And when I say "We" I'm talking about me and my dog.<br>
     <br>
     I. We are not responsible for any information stored with the Service.<br>
     <br>
@@ -14,7 +14,10 @@
     <br>
     IV. We reserve the right to refuse service to anyone for any reason at any time.<br>
     <br>
-    <div class="link" @click="sot.title=''">home</div>
+    V. Woof woof woof woof woof woof woof.<br>
+    <br>
+    <div class="link" @click="sot.title=''">back home</div>
+    <br><br>
   </div>
 </template>
 
