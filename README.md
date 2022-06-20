@@ -1,5 +1,5 @@
 # publicnote.com
-Public Encrypted Notes
+Public Encrypted Notepad
 
 Publicnote is a free online notepad. Enter any title to create a new note or to access any existing note. No account is required to access publicnote.
 
