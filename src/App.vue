@@ -29,7 +29,7 @@ export default {
     get: function() {
       clearTimeout(this.sot.autoload);
       clearTimeout(this.sot.autosave);
-      if (this.sot.title != '' && this.sot.title != 'terms' && this.sot.title != 'how it works' && this.sot.title != 'suicide') {
+      if (this.sot.title != '' && this.sot.title != 'terms' && this.sot.title != 'suicide') {
         this.sot.get(this.sot.title);
       }
       else {
