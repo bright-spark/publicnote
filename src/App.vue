@@ -1,6 +1,8 @@
 <template>
   <div id="app">
-    <input type="text" v-model="sot.title" placeholder="title" v-on:keyup="get()" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+    <input v-bind:type="[hidden ? 'password' : 'text']"  v-model="sot.title" placeholder="title" v-on:keyup="get()" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+    <div class="eye icon" v-show="hidden" @click="show()"></div>
+    <div class="closedeye icon" v-show="!hidden" @click="hide()"></div>
     <status id="status"/>
     <home class="page" v-if="sot.title == ''"/>
     <terms class="page" v-else-if="sot.title == 'terms'"/>
@@ -23,6 +25,7 @@ export default {
   data: function() {
     return {
       sot: this.$root.$data,
+      hidden: true
     }
   },
   methods: {
@@ -39,6 +42,13 @@ export default {
     },
     save: function() {
       this.sot.save(this.sot.title, this.sot.note);
+    },
+    show: function() {
+      this.hidden = false;
+
+    },
+    hide: function() {
+      this.hidden = true;
     }
   }
 }
@@ -52,6 +62,7 @@ html, body {
   font-size: 18px;
   font-weight: 500;
   color: $color-text;
+  background: $color-bg;
   margin: 0;
   width: 100%;
   height: 100%;
@@ -88,7 +99,7 @@ textarea::selection {
 #status {
   position: absolute;
   top: $app-margin + 4px;
-  right: $app-margin;
+  right: $app-margin + 40px;
 }
 
 .blur {
@@ -100,6 +111,7 @@ input, textarea {
   display: block;
   font-family: $font;
   caret-color: $color-primary;
+  background: $color-bg;
   font-size: 18px;
   border: none;
   border-radius: 0;
@@ -150,6 +162,67 @@ textarea::-webkit-scrollbar {
   color: $color-primary;
 }
 
+.eye.icon {
+  cursor: pointer;
+  color: $color-primary;
+  background: $color-primary;
+  position: absolute;
+  top: 32px;
+  right: 20px;
+  width: 16px;
+  height: 16px;
+  border-radius: 77% 16%;
+  border: solid 2px currentColor;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.eye.icon:before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: solid 2px $color-bg;
+}
+
+.closedeye.icon {
+  cursor: pointer;
+  color: $color-primary;
+  background: $color-primary;
+  position: absolute;
+  top: 32px;
+  right: 20px;
+  width: 16px;
+  height: 16px;
+  border-radius: 77% 16%;
+  border: solid 2px currentColor;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+.closedeye.icon:before {
+  content: '';
+  position: absolute;
+  left: 2px;
+  top: 2px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  border: solid 2px $color-bg;
+}
+.closedeye.icon:after {
+  content: '';
+  position: absolute;
+  left: -5px;
+  top: 7px;
+  width: 24px;
+  border: solid 1px currentColor;
+  box-shadow: 0 1px $color-accent;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
 @media (prefers-color-scheme: dark) {
   html, body {
     color: #eee;
@@ -162,7 +235,12 @@ textarea::-webkit-scrollbar {
   .blur {
     background: #211e21;
   }
-
+  .eye.icon:before {
+    border-color: #211e21
+  }
+  .closedeye.icon:before {
+    border-color: #211e21
+  }
 }
 
 </style>

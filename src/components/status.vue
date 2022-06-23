@@ -29,7 +29,7 @@ export default {
   width: 15px;
   height: 15px;
   animation: spin 0.5s linear infinite;
-  margin-top: 10px;
+  margin-top: 12px;
   margin-right: 2px;
 }
 
