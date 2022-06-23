@@ -214,11 +214,12 @@ textarea::-webkit-scrollbar {
 .closedeye.icon:after {
   content: '';
   position: absolute;
-  left: -5px;
+  left: -3px;
   top: 7px;
   width: 24px;
-  border: solid 1px currentColor;
-  box-shadow: 0 1px $color-accent;
+  border: solid 2px currentColor;
+  border-width: 2px 0 0 0;
+  box-shadow: 0px 2px $color-accent;
   -webkit-transform: rotate(90deg);
           transform: rotate(90deg);
 }
