@@ -5,9 +5,9 @@ Publicnote is a free online notepad. Enter any title to create a new note or to 
 
 All notes are auto-saved to the cloud as you type. The check mark in the upper right corner indicates when a note has been successfully saved.
 
-Every note is encrypted with AES-256, using the title as the encryption key. Then an SHA-256 hash of the title is used to index the encrypted note in a database. Since SHA-256 is a one-way function, the title is never exposed, thus neither the website owner nor the web host (AWS) can view the plaintext contents of any note (unless the title is easily guessed).
-
-            title → SHA256 → index
+Every note is encrypted with AES-256, using the title as the encryption key. Then an SHA-256 hash of the title is used to index the encrypted note in a database. Since SHA-256 is a one-way function and the process takes place in your browser, the title is never exposed, thus neither the website owner nor the web host (AWS) can view the plaintext contents of any note (unless the title is easily guessed).
+ 
+            title → SHA256 → hash
               ⇣
              🔑
     note → AES256 → encrypted note
