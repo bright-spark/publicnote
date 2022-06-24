@@ -1,8 +1,8 @@
 <template>
   <div id="app">
     <input v-bind:type="[hidden ? 'password' : 'text']"  v-model="sot.title" placeholder="title" v-on:keyup="get()" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-    <div class="eye icon" v-show="hidden" @click="show()"></div>
-    <div class="closedeye icon" v-show="!hidden" @click="hide()"></div>
+    <div class="eye icon" v-show="!hidden" @click="hide()"></div>
+    <div class="closedeye icon" v-show="hidden" @click="show()"></div>
     <status id="status"/>
     <home class="page" v-if="sot.title == ''"/>
     <terms class="page" v-else-if="sot.title == 'terms'"/>
@@ -100,6 +100,7 @@ textarea::selection {
   position: absolute;
   top: $app-margin + 4px;
   right: $app-margin + 40px;
+  user-select: none;
 }
 
 .blur {
@@ -162,10 +163,13 @@ textarea::-webkit-scrollbar {
   color: $color-primary;
 }
 
+.icon {
+  user-select: none;
+}
+
 .eye.icon {
   cursor: pointer;
   color: $color-primary;
-  background: $color-primary;
   position: absolute;
   top: 32px;
   right: 20px;
@@ -179,18 +183,17 @@ textarea::-webkit-scrollbar {
 .eye.icon:before {
   content: '';
   position: absolute;
-  left: 2px;
-  top: 2px;
-  width: 8px;
-  height: 8px;
+  left: 3px;
+  top: 3px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  border: solid 2px $color-bg;
+  border: solid 2px $color-primary;
 }
 
 .closedeye.icon {
   cursor: pointer;
   color: $color-primary;
-  background: $color-primary;
   position: absolute;
   top: 32px;
   right: 20px;
@@ -204,12 +207,12 @@ textarea::-webkit-scrollbar {
 .closedeye.icon:before {
   content: '';
   position: absolute;
-  left: 2px;
-  top: 2px;
-  width: 8px;
-  height: 8px;
+  left: 3px;
+  top: 3px;
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
-  border: solid 2px $color-bg;
+  border: solid 2px $color-primary;
 }
 .closedeye.icon:after {
   content: '';
