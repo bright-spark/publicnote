@@ -22,4 +22,7 @@ Do not use publicnote to store sensitive information.
 
 Publicnote is open source and offered as a free service.  Your cryptocurrency donations are always appreciated.
 
-BTC: 1HrQfojcRt4gGEZntEwp24KVrSch8mtqMk
+BTC:  bc1q7fqwmtq2vaka8wwpjpnmlehe36qrgfmlw33vh9
+LTC:  LYMSJ313xJaUsAmucuYRkVJmGB8Ut9VDz8
+DOGE: DATumCTp1QBG1Gpa3ko6bXPXccnFMFDgYC
+ETH:  0x6abD6f3df07c06e4137269D7187661dE37441218
